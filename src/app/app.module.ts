@@ -13,6 +13,8 @@ import { SubscribeComponent } from './subscribe/subscribe.component';
 import { ProposComponentComponent } from './propos-component/propos-component.component';
 import { ContactComponentComponent } from './contact-component/contact-component.component';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,13 +27,16 @@ import { RouterModule } from '@angular/router';
     ProposComponentComponent,
     ContactComponentComponent
     
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule,
+    FormsModule
     /*RouterModule.forRoot([
       { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'home', component:CarouselComponent  },

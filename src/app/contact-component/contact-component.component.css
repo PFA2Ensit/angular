@@ -5,3 +5,10 @@
 .row{
     margin:15px;
 }
+
+#response{
+    position: relative;
+    left: 10%;
+    top:30%;
+    color:purple;
+}
