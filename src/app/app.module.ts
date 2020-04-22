@@ -15,6 +15,9 @@ import { ContactComponentComponent } from './contact-component/contact-component
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import {App1SharedModule} 
+       from "../../projects/annonce-managment/src/app/app.module";
+
 
 @NgModule({
   declarations: [
@@ -28,6 +31,7 @@ import { FormsModule } from '@angular/forms';
     ContactComponentComponent
     
     
+    
   ],
   imports: [
     BrowserModule,
@@ -36,7 +40,8 @@ import { FormsModule } from '@angular/forms';
     AngularMaterialModule,
     NgbModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    App1SharedModule.forRoot()
     /*RouterModule.forRoot([
       { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'home', component:CarouselComponent  },

@@ -1,0 +1,54 @@
+<!-- Toolbar -->
+<mat-toolbar id="tool" #toolbar [class.sticky] = "sticky" color="primary" class="header">
+    <div>Material Theme</div>
+    <span class="nav-tool-items">
+      <mat-icon (click)="sidenav.toggle()" class="hamburger">menu</mat-icon>
+    </span>
+  </mat-toolbar>
+  
+  <mat-sidenav-container>
+    <!-- Sidenav -->
+    <mat-sidenav   #sidenav [mode]="isBiggerScreen() ? 'over' : 'side'" [(opened)]="opened" [fixedInViewport]="true"
+      [fixedTopGap]>
+      <mat-nav-list>
+        <a href="#home" mat-list-item>
+          <mat-icon>home</mat-icon>Home
+        </a>
+        
+        <a href="#para"  mat-list-item>
+          <mat-icon>lock</mat-icon> Logout
+        </a>
+        
+         
+      </mat-nav-list>
+    </mat-sidenav>
+  
+    <!-- Main content -->
+    <mat-sidenav-content >
+  
+      <!-- Applying the mat-tyography class adds styles for native elements. -->
+  
+  
+      <!-- Angular material cards -->
+      <div class="productCards">
+        <mat-grid-list cols="4" rowHeight="200px">
+         
+          
+          <mat-grid-tile id="recent" [colspan]="4" [rowspan]="5">
+            <mat-grid-tile-header [style.background]="'grey'">
+              <h3><i class="fa fa-angle-right"></i> Recent Properties</h3>
+            </mat-grid-tile-header>
+            <app-annonce></app-annonce>
+          </mat-grid-tile>
+  
+          
+          
+         
+  
+        </mat-grid-list>
+      </div>
+  
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  
+  
