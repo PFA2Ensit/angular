@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import {App1SharedModule} 
        from "../../projects/annonce-managment/src/app/app.module";
+import { AnnonceListComponent } from './list/annonce-list.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import {App1SharedModule}
     UniversitiesComponent,
     SubscribeComponent,
     ProposComponentComponent,
-    ContactComponentComponent
+    ContactComponentComponent,
+    AnnonceListComponent
     
     
     

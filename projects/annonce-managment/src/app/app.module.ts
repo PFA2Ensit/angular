@@ -8,7 +8,11 @@ import { MenuComponent } from './menu/menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { AnnonceListComponent } from './annonce-list/annonce-list.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UpdateAnnonceComponent } from './update-annonce/update-annonce.component';
+import { ResultComponent } from './result/result.component';
+import { FormDataService }    from './data/form-data.service';
+import {PropertiesComponent} from './properties/properties.component';
 const providers = []
 
 @NgModule({
@@ -16,16 +20,23 @@ const providers = []
     AppComponent,
     AnnonceComponent,
     MenuComponent,
-    AnnonceListComponent
+    AnnonceListComponent,
+    UpdateAnnonceComponent,
+    ResultComponent,
+    PropertiesComponent
+   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{ provide: FormDataService, useClass: FormDataService }
+   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 

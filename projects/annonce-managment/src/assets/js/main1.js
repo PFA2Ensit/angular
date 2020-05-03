@@ -9,8 +9,18 @@ $(function(){
             finish: "Submit",
             next: "Forward",
             previous: "Backward"
-        }
+        },
+        onFinishing: function (event, currentIndex) {
+            $("#wizard").submit();
+            }
+            
     });
+    $("#wizard").submit(function(){
+        var $form = $(this);
+    var formDataArray = $form.serializeArray(); 
+    alert(formDataArray);
+        alert("Form Submitted");
+    })
     $('.wizard > .steps li a').click(function(){
     	$(this).parent().addClass('checked');
 		$(this).parent().prevAll().addClass('checked');

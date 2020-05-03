@@ -1,5 +1,9 @@
+import { Annonceur } from './annonceur';
+
 export class Annonce{
     id: number;
+    address:string;
+    property:string;
     nom_ecole : string; 
     prix: number;
     description: string;
@@ -9,4 +13,5 @@ export class Annonce{
     date_ajout: Date;
     availabe: boolean;
     genre:string;
+    annonceur:Annonceur;
 }

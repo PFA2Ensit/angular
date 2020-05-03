@@ -11,13 +11,13 @@
     <mat-sidenav   #sidenav [mode]="isBiggerScreen() ? 'over' : 'side'" [(opened)]="opened" [fixedInViewport]="true"
       [fixedTopGap]>
       <mat-nav-list>
-        <a href="#home" mat-list-item>
+        <a routerLink="home" routerLinkActive="active" mat-list-item>
           <mat-icon>home</mat-icon>Home
         </a>
-        
-        <a href="#para"  mat-list-item>
-          <mat-icon>lock</mat-icon> Logout
-        </a>
+        <a routerLink="add" routerLinkActive="active"
+        mat-list-item>add</a>
+        <a routerLink="annonces" routerLinkActive="active"
+        mat-list-item>Annonce List</a>
         
          
       </mat-nav-list>
@@ -35,10 +35,7 @@
          
           
           <mat-grid-tile id="recent" [colspan]="4" [rowspan]="5">
-            <mat-grid-tile-header [style.background]="'grey'">
-              <h3><i class="fa fa-angle-right"></i> Recent Properties</h3>
-            </mat-grid-tile-header>
-            <app-annonce></app-annonce>
+            
           </mat-grid-tile>
   
           

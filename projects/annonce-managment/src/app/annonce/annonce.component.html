@@ -1,96 +1,28 @@
-<div class="wrapper">
-    <form action="" id="wizard">
-        <!-- SECTION 1 -->
-        <h2></h2>
-        <section>
-            <div class="inner">
-                <div class="image-holder">
-                    <img src="assets/images/form-wizard-1.jpg" alt="">
-                </div>
-                <div class="form-content" >
-                    <div class="form-header">
-                        <h3>Add advert</h3>
-                    </div>
-                    <p>Please fill with your details</p>
-                    
-                    <div class="form-row">
-                        <div class="form-holder">
-                            <input type="text" placeholder="Your Email" class="form-control">
-                        </div>
-                        <div class="form-holder">
-                            <input type="text" placeholder="Phone Number" class="form-control">
-                        </div>
-                    </div>
-                    
-                    
-                </div>
-            </div>
-        </section>
+<div class="container">
+<form  #personalForm="ngForm"  novalidate>
+    
   
-        <!-- SECTION 2 -->
-        <h2></h2>
-        <section>
-            <div class="inner">
-                <div class="image-holder">
-                    <img src="assets/images/form-wizard-2.jpg" alt="">
-                </div>
-                <div class="form-content">
-                    <div class="form-header">
-                        <h3>Add advert</h3>
-                    </div>
-                    <p>Please fill with local info</p>
-                    <div class="form-row">
-                        <div class="form-holder">
-                            <input type="text" placeholder="Address" class="form-control">
-                        </div>
-                        <div class="form-holder">
-                            <input type="text" placeholder="Price" class="form-control">
-                        </div>
-                        <div class="form-holder">
-                            <input type="file" name="image" id="image" placeholder="Select image" class="form-control" />
-                        </div>
-                    </div>
-  
-                    <div class="form-row">
-                        <div class="select">
-                            <div class="form-holder">
-                                <div class="select-control">Properties</div>
-                                <i class="zmdi zmdi-caret-down"></i>
-                            </div>
-                            <select multiple class="dropdown">
-                                <option value=un>Wifi</option>
-                                <option value=deux>Douche</option>
-                                <option value=trois>Arret bus</option>
-                            </select>
-                        </div>
-                        <div class="form-holder"></div>
-                    </div>
-                
-                  
-                </div>
-            </div>
-        </section>
-  
-        <!-- SECTION 3 -->
-        <h2></h2>
-        <section>
-            <div class="inner">
-                <div class="image-holder">
-                    <img src="assets/images/form-wizard-3.jpg" alt="">
-                </div>
-                <div class="form-content">
-                    <div class="form-header">
-                        <h3>Add advert</h3>
-                    </div>
-                    <p>Send an optional message</p>
-                    <div class="form-row">
-                        <div class="form-holder w-100">
-                            <textarea name="" id="" placeholder="Your messagere here!" class="form-control" style="height: 99px;"></textarea>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-        </section>
-    </form>
-  </div>
+      <h4 class="head text-center">{{title}}</h4>
+      <br/>
+     
+         
+            
+             <input class="form-control input-md" #phone="ngModel"  id="phone" name="phone" type="text" placeholder="Contact phone" [(ngModel)]="personal.phone">
+            <div class="alert alert-danger" [hidden]="phone.valid">Phone is required</div>
+                  <br>
+              
+             
+                <input class="form-control input-md" #email="ngModel" pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" id="email" name="email" type="text" placeholder="Email" [(ngModel)]="personal.email">
+                  <div class="alert alert-danger" [hidden]="email.valid">Email is required and must be valid</div>
+   <br>
+    
+                <button class="btn btn-outline-rounded btn-info" [disabled]="!personalForm.valid" (click)="goToNext(personalForm)"> Next <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button>
+            
+        
+    
+</form>
+</div>        
+            
+            
+
+          
