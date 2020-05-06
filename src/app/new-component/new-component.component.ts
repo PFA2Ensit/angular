@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AnnonceService } from '../annonce.service';
+import { Annonce } from '../Annonce';
 
 @Component({
   selector: 'app-new-component',
@@ -6,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new-component.component.css']
 })
 export class NewComponentComponent implements OnInit {
+  annonces: Annonce[];
 
-  constructor() { }
+  constructor(private _annonceService: AnnonceService) { }
 
   ngOnInit(): void {
+    this.reloadData();
   }
-
+  reloadData() {
+    this._annonceService.recentAdd().subscribe(
+      data => this.annonces = data
+     
+    )
+   }
 }

@@ -13,7 +13,11 @@ const routes: Routes = [
 { path: 'about', component: ProposComponentComponent },
 { path: 'new', component: NewComponentComponent},
 { path: 'login', component: ContactComponentComponent },
-{ path: 'ecole/:name', component: AnnonceListComponent }
+{ path: 'ecole/:nom', component: AnnonceListComponent },
+{ path: 'search/:name/:type/:capacity', component: AnnonceListComponent },
+{ path: '**', redirectTo:'/home '}
+
+
 
 ];
 

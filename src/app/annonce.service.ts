@@ -39,11 +39,28 @@ export class AnnonceService {
       return this.http.get<getResponse>(searchUrl).pipe(
       map(response => response._embedded.annonces)
       );
-      
-      
+     
+    }
+
+    search(nom :string,type:string,capacity:number): Observable<Annonce[]> {
+      const searchUrl = `${this.baseUrl}/search/searchBox?nom=${nom}&type=${type}&nombre=${capacity}`;
+      return this.http.get<getResponse>(searchUrl).pipe(
+      map(response => response._embedded.annonces)
+      );
+     
+    }
+
+    getCount(): Observable<any>{
+      return this.http.get<number>(`${this.baseUrl}/search/count`);
     }
   
-   
+   recentAdd(): Observable<Annonce[]> {
+    const searchUrl = `${this.baseUrl}/search/tri`;
+    return this.http.get<getResponse>(searchUrl).pipe(
+    map(response => response._embedded.annonces)
+    );
+
+   }
     
   }
   
