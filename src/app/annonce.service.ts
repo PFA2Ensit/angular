@@ -61,6 +61,22 @@ export class AnnonceService {
     );
 
    }
+
+   prixAsc(nom :string,type:string,capacity:number): Observable<Annonce[]> {
+    const searchUrl = `${this.baseUrl}/search/prixA?nom=${nom}&type=${type}&nombre=${capacity}`;
+    return this.http.get<getResponse>(searchUrl).pipe(
+    map(response => response._embedded.annonces)
+    );
+
+   }
+
+   prixDesc(nom :string,type:string,capacity:number): Observable<Annonce[]> {
+    const searchUrl = `${this.baseUrl}/search/prixD?nom=${nom}&type=${type}&nombre=${capacity}`;
+    return this.http.get<getResponse>(searchUrl).pipe(
+    map(response => response._embedded.annonces)
+    );
+
+   }
     
   }
   
