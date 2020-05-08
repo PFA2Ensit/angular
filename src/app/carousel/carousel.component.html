@@ -1,4 +1,4 @@
-<div id="container">
+<!--<div id="container">
   <ngb-carousel [showNavigationArrows]="true" [showNavigationIndicators]="true" interval="1200" [keyboard]="true"
     [pauseOnHover]="true" [wrap]="true" [activeId]="'firstSlide'">
     <ng-template ngbSlide id="firstSlide">
@@ -34,119 +34,79 @@
 
       </div>
     </ng-template>
-  </ngb-carousel>
+  </ngb-carousel>-->
 
 
 
-  <div class="super_container">
-    <!-- Home -->
-
-    <div class="home">
-
-      <!-- Home Slider -->
-      <div class="home_slider_container">
-        <div class="owl-carousel owl-theme home_slider">
-          <!-- Slide -->
-          <div class="owl-item">
-            <div class="slide_container">
-              <div class="container">
-                <div class="row">
-                  <div class="col">
-                    <div class="slide_content">
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Slide -->
-          <div class="owl-item">
-            <div class="slide_container">
-              <div class="container">
-                <div class="row">
-                  <div class="col">
-
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Slide -->
-          <div class="owl-item">
-            <div class="slide_container">
-              <div class="container">
-                <div class="row">
-
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-    <br><br>
-    <!-- Home Search -->
-    <div class="home_search">
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            <div class="home_search_container">
-              <div class="home_search_content">
-                <form #searchInput="ngForm" action="#" class="search_form d-flex flex-row align-items-start justfy-content-start">
-                  <div class="search_form_content d-flex flex-row align-items-start justfy-content-start flex-wrap">
-                    <div>
-                      <select name="ecole"  #ecole id="ecole" class="search_form_select">
-                        <option disabled selected>institution</option>
-                        <option>Ensit</option>
-                        <option>Enit</option>
-                        <option>Ensi</option>
-                        <option>Isi</option>
-                        <option>Fst</option>
-                      </select>
-                    </div>
-                    <div>
-                      <select name="type"  #type  class="search_form_select">
-                        <option disabled selected>Type</option>
-                        <option>All</option>
-                        <option>Foyer</option>
-                        <option>House</option>
-                      </select>
-                    </div>
-                    <div>
-                      <select name="capacity"  #capacity  class="search_form_select">
-                        <option disabled selected>Capacity</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>more</option>
-                      </select>
-                    </div>
-
-
-
-                  </div>
-                  <div class="btn">
-                    <div class="wrap-login100-form-btn">
-                      <div class="login100-form-bgbtn ml-auto"></div>
-                      <button type="submit" (click)="searchAnnonce(ecole.value,type.value,capacity.value)" class="login100-form-btn ">
-                        search
-                      </button>
-                    </div>
-                  </div>
-
-                </form>
-              </div>
+<div class="home">
+  <div id="para" class="view intro jarallax"></div>
+  <div class="home_container">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="home_content d-flex flex-row align-items-end justify-content-start">
+            <div class="home_title">Search home/foyer</div>
+            <div class="breadcrumbs ml-auto">
+              <ul>
+                <li><a routerLink="home">Home</a></li>
+                <li>Search </li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-
 </div>
+
+<!-- Home Search -->
+<div class="home_search">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="home_search_container">
+          <div class="home_search_content">
+            <form action="#" class="search_form d-flex flex-row align-items-start justfy-content-start">
+              <div class="search_form_content d-flex flex-row align-items-start justfy-content-start flex-wrap">
+                <div>
+                  <select name="ecole" #ecole id="ecole" class="search_form_select">
+                    <option disabled selected>institution</option>
+                    <option>Ensit</option>
+                    <option>Enit</option>
+                    <option>Ensi</option>
+                    <option>Isi</option>
+                    <option>Fst</option>
+                  </select>
+                </div>
+                <div>
+                  <select name="type" #type class="search_form_select">
+                    <option disabled selected>Type</option>
+                    <option>All</option>
+                    <option>Foyer</option>
+                    <option>House</option>
+                  </select>
+                </div>
+                <div>
+                  <select name="capacity" #capacity class="search_form_select">
+                    <option disabled selected>Capacity</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>more</option>
+                  </select>
+                </div>
+
+
+              </div>
+              <button type="submit" (click)="searchAnnonce(ecole.value,type.value,capacity.value)"
+                class="search_form_button ml-auto">search</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <app-universities></app-universities>

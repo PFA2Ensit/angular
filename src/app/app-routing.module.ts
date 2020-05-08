@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
+import { DetailsComponent } from './details/details.component';
 import { ContactComponentComponent } from './contact-component/contact-component.component';
 import { NewComponentComponent } from './new-component/new-component.component';
 import { UniversitiesComponent } from './universities/universities.component';
@@ -15,7 +15,8 @@ const routes: Routes = [
 { path: 'login', component: ContactComponentComponent },
 { path: 'ecole/:nom', component: AnnonceListComponent },
 { path: 'search/:name/:type/:capacity', component: AnnonceListComponent },
-{ path: '**', redirectTo:'/home '}
+{ path: 'details/:id', component: DetailsComponent }
+
 
 
 

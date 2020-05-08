@@ -18,6 +18,7 @@ import { FormsModule } from '@angular/forms';
 import {App1SharedModule} 
        from "../../projects/annonce-managment/src/app/app.module";
 import { AnnonceListComponent } from './list/annonce-list.component';
+import { DetailsComponent } from './details/details.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { AnnonceListComponent } from './list/annonce-list.component';
     SubscribeComponent,
     ProposComponentComponent,
     ContactComponentComponent,
-    AnnonceListComponent
+    AnnonceListComponent,
+    DetailsComponent
     
     
     

@@ -1,6 +1,5 @@
 <div class="home">
-    <div class="parallax_background parallax-window" data-parallax="scroll"
-        data-image-src="assets/images/properties.jpg" data-speed="0.8"></div>
+    <div id="para" class="view intro jarallax"></div>
     <div class="home_container">
         <div class="container">
             <div class="row">
@@ -9,7 +8,7 @@
                         <div class="home_title">Search results</div>
                         <div class="breadcrumbs ml-auto">
                             <ul>
-                                <li><a href="index.htmo">Home</a></li>
+                                <li><a routerLink="home">Home</a></li>
                                 <li>Search Results</li>
                             </ul>
                         </div>
@@ -31,49 +30,37 @@
                             <div
                                 class="search_form_content d-flex flex-row align-items-start justfy-content-start flex-wrap">
                                 <div>
-                                    <select class="search_form_select">
-                                        <option disabled selected>For rent</option>
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                    <select name="ecole" #ecole id="ecole" class="search_form_select">
+                                        <option disabled selected>institution</option>
+                                        <option>Ensit</option>
+                                        <option>Enit</option>
+                                        <option>Ensi</option>
+                                        <option>Isi</option>
+                                        <option>Fst</option>
                                     </select>
                                 </div>
                                 <div>
-                                    <select class="search_form_select">
-                                        <option disabled selected>All types</option>
-                                        <option>Type 1</option>
-                                        <option>Type 2</option>
-                                        <option>Type 3</option>
-                                        <option>Type 4</option>
+                                    <select name="type" #type  class="search_form_select">
+                                        <option disabled selected>Type</option>
+                                        <option>All</option>
+                                        <option>Foyer</option>
+                                        <option>House</option>
                                     </select>
                                 </div>
                                 <div>
-                                    <select class="search_form_select">
-                                        <option disabled selected>City</option>
-                                        <option>New York</option>
-                                        <option>Paris</option>
-                                        <option>Amsterdam</option>
-                                        <option>Rome</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <select class="search_form_select">
-                                        <option disabled selected>Bedrooms</option>
+                                    <select name="capacity" #capacity class="search_form_select">
+                                        <option disabled selected>Capacity</option>
                                         <option>1</option>
                                         <option>2</option>
                                         <option>3</option>
                                         <option>4</option>
+                                        <option>more</option>
                                     </select>
                                 </div>
-                                <div>
-                                    <select class="search_form_select">
-                                        <option disabled selected>Bathrooms</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                    </select>
-                                </div>
+                                
+                                
                             </div>
-                            <button class="search_form_button ml-auto">search</button>
+                            <button type="submit" (click)="searchAnnonce(ecole.value,type.value,capacity.value)" class="search_form_button ml-auto">search</button>
                         </form>
                     </div>
                 </div>
@@ -98,7 +85,7 @@
                 <div class="property">
                     <div class="property_image">
                         <img src="assets/images/property_1.jpg" alt="">
-                        <div class="tag_featured property_tag"><a href="#">Details</a></div>
+                        <div class="tag_featured property_tag"><a routerLink="/details/{{annonce.id}}">Details</a></div>
                     </div>
                     <div class="property_body text-center">
                         <div class="property_location">{{annonce.nomEcole}}</div>

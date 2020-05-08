@@ -8,16 +8,18 @@ import { Observable } from 'rxjs';
   styleUrls: ['./propos-component.component.css']
 })
 export class ProposComponentComponent implements OnInit {
-  countResult:number = 20;
+  countResult:number;
   constructor(private _annonceService: AnnonceService) { }
   ngOnInit(): void {
     //this._annonceService.getCount().subscribe((data)=>this.countResult =data)
-    console.log(this.countResult);
+    this.getCountFromService();
 
   }
 
- /* getCountFromService(){
-  
-    }*/
+  getCountFromService(){
+    this.countResult = +this._annonceService.getCount().subscribe((data)=>this.countResult =data)
+    
+    console.log(this.countResult);
+    }
 
 }

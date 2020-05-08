@@ -19,8 +19,8 @@ export class AnnonceService {
   }
 
   
-  getAnnonce(id: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}/${id}`);
+  getAnnonce(id: number): Observable<Annonce> {
+    return this.http.get<Annonce>(`${this.baseUrl}/${id}`);
   }
 
   
@@ -51,7 +51,10 @@ export class AnnonceService {
     }
 
     getCount(): Observable<any>{
-      return this.http.get<number>(`${this.baseUrl}/search/count`);
+      return this.http.get<getCount>(`${this.baseUrl}`).pipe(
+        map(response => response.page.totalElements)
+        );
+    ;
     }
   
    recentAdd(): Observable<Annonce[]> {
@@ -84,6 +87,13 @@ export class AnnonceService {
     _embedded : {
       annonces : Annonce[];
     }
+
+    
       
   }
-  
+
+  interface getCount{
+    page : {
+      totalElements : number;
+    }
+  }

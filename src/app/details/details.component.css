@@ -1,33 +1,20 @@
 @charset "utf-8";
-/* CSS Document */
-
-/******************************
-
-[Table of Contents]
-
-1. Fonts
-2. Body and some general stuff
-3. Header
-4. Menu
-5. Home
-6. Home Search
-7. Properties
-9. Newsletter
-10. Footer
-
-
-
-******************************/
-
-/***********
-1. Fonts
-***********/
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,400i,500,600,700,800,900');
 
-/*********************************
-2. Body and some general stuff
-*********************************/
+#para{
+    background-image: url(src/assets/images/properties.jpg);
+    position: absolute;
+    top:0%;
+    left:-1%;
+    height: 400px; /* You must set a specified height */
+    width: 100%;
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+  }
+
+
 
 *
 {
@@ -536,7 +523,10 @@ section
 .home
 {
 	width: 100%;
-	height:441px;
+  height:441px;
+  position: absolute;
+	left:1%;
+	top:3%;
 }
 .home_container
 {
@@ -597,7 +587,10 @@ section
 {
 	width: 100%;
 	z-index: 100;
-	background: #FFFFFF;
+  background: #FFFFFF;
+  position: absolute;
+	top: 17%;
+	left: 0%;
 }
 .home_search_container
 {
@@ -658,7 +651,7 @@ section
     appearance: none;
     -webkit-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
     -webkit-user-select: none;
-    background-image: url(../images/down.png);
+    background-image: url(src/assets/images/down.png);
     background-position: center right;
     background-repeat: no-repeat;
     border: none;
@@ -905,7 +898,7 @@ top:50% ;
     appearance: none;
     -webkit-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
     -webkit-user-select: none;
-    background-image: url(../images/down.png);
+    background-image: url(src/assets/images/down.png);
     background-position: center right;
     background-repeat: no-repeat;
 	margin-bottom: 22px;
