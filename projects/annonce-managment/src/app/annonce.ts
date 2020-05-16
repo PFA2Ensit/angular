@@ -4,7 +4,7 @@ export class Annonce{
     id: number;
     address:string;
     property:string;
-    nom_ecole : string; 
+    nomEcole : string; 
     prix: number;
     description: string;
     nb_place: number;

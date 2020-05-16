@@ -1,25 +1,25 @@
 import {Deserializable} from "../deserializable.model";
 
 export class FormData {
-    //email:string;
-    //phone:string;
+    
     description : string ='';
     image_url :string='';
-    nb_place : number=0;
-    nom_ecole: string = '';
+    capacite : number=0;
+    nomEcole: string = '';
     prix: number=0;
     type: string='';
+    prop:string='';
     
 
     clear() {
-    /*this.email = '';
-    this.phone=''*/
+    
     this.prix=0;
-    this.nom_ecole= '';
+    this.nomEcole= '';
     this.image_url ='';
     this.type='';
-    this.nb_place=0;
+    this.capacite=0;
     this.description ='';
+    this.prop ='';
     }
 }
 
@@ -31,12 +31,12 @@ export class Annonceur {
 
 export class Annonce {
     prix: number=0;
-    nom_ecole: string = '';
+    nomEcole: string = '';
     image_url :string='';
     type: string='';
-    nb_place : number=0;
+    capacite : number=0;
     description : string ='';
-    //annonceur:Annonceur;
+    prop:string='';
 
     
 }

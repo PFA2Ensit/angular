@@ -56,20 +56,80 @@ export class AnnonceListComponent implements OnInit {
       this.ecoleNom = this._activatedRoute.snapshot.paramMap.get('name');
       this.type = this._activatedRoute.snapshot.paramMap.get('type');
       this.capacity = +this._activatedRoute.snapshot.paramMap.get('capacity');
+      if( this.type == "All" && this.capacity == 1){
+        this._annonceService.getAll().subscribe(
+          data => this.annonces = data
+        )
+        }
+        else{
+      this._annonceService.search(this.ecoleNom, this.type, this.capacity).subscribe(
+        data => this.annonces = data,data =>console.log(data) 
+      )
+      }
+    }
 
+    
+
+    else if(hasName && hasType){
+      this.ecoleNom = this._activatedRoute.snapshot.paramMap.get('name');
+      this.type = this._activatedRoute.snapshot.paramMap.get('type');
+
+      this._annonceService.searchBynomandtype(this.ecoleNom, this.type).subscribe(
+        data => this.annonces = data
+      )
+    }
+
+    else if(hasType){
+      
+      this.type = this._activatedRoute.snapshot.paramMap.get('type');
+
+      this._annonceService.searchBytype(this.type).subscribe(
+        data => this.annonces = data
+      )
 
     }
 
-    this._annonceService.search(this.ecoleNom, this.type, this.capacity).subscribe(
-      data => this.annonces = data
-    )
+    else if(hasCapacity && hasType){
+      this.capacity = +this._activatedRoute.snapshot.paramMap.get('capacity');
+      this.type = this._activatedRoute.snapshot.paramMap.get('type');
+
+      this._annonceService.searchBytypeandcap(this.type, this.capacity).subscribe(
+        data => this.annonces = data
+      )
+
+    }
+
+    /*else if() {
+      this.ecoleNom = this._activatedRoute.snapshot.paramMap.get('name');
+      this.type = this._activatedRoute.snapshot.paramMap.get('type');
+      this.capacity = +this._activatedRoute.snapshot.paramMap.get('capacity');
+     
+
+    }*/
 
   }
-  searchAnnonce(ecole:string,type:string,capacity:number){
+  searchAnnonce(ecole:string,type:string,capacity:String){
     
     console.log('keywords :',type,ecole,capacity);
-    this._router.navigateByUrl('/search/'+ecole+'/'+type+'/'+capacity);
+    if(ecole =="institution" && type=="Type" ){
+     this._router.navigateByUrl('/search/'+"Ensit"+'/'+"All"+"/"+1);
+    }
+    else if(ecole =="institution" ){
+     this._router.navigateByUrl('/search/'+type);
+ 
+    }
+    else if(capacity == "Capacity" ){
+     this._router.navigateByUrl('/search/'+ecole+'/'+type+'/'+1);
+ 
+    }
+     else {
+       this._router.navigateByUrl('/search/'+ecole+'/'+type+'/'+capacity);
+ 
+     }
+   
+ 
    }
+ 
 
    modo(){
     switch(this.chosenMod) {  

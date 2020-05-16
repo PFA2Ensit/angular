@@ -19,6 +19,8 @@ import {App1SharedModule}
        from "../../projects/annonce-managment/src/app/app.module";
 import { AnnonceListComponent } from './list/annonce-list.component';
 import { DetailsComponent } from './details/details.component';
+import { AgmCoreModule } from '@agm/core';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import { DetailsComponent } from './details/details.component';
     ProposComponentComponent,
     ContactComponentComponent,
     AnnonceListComponent,
-    DetailsComponent
+    DetailsComponent,
+    LoginComponent
+    
     
     
     
@@ -45,7 +49,11 @@ import { DetailsComponent } from './details/details.component';
     NgbModule,
     HttpClientModule,
     FormsModule,
-    App1SharedModule.forRoot()
+    App1SharedModule.forRoot(),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAEfALPKiKoZr5EAo4IPe1kXquhz5YUcWI',
+      libraries: ['places']
+    })
     /*RouterModule.forRoot([
       { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'home', component:CarouselComponent  },

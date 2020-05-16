@@ -11,7 +11,7 @@ let headers = new HttpHeaders({ 'Access-Control-Allow-Origin': '*' });
 })
 export class AnnonceService {
 
-  private baseUrl = 'http://localhost:8080/api/v1/annonces';
+  private baseUrl = 'http://localhost:8080/annonces';
   constructor(private http: HttpClient) { }
 
   createAnnonce(annonce: Object): Observable<Object> {
@@ -21,6 +21,13 @@ export class AnnonceService {
   
   getAnnonce(id: number): Observable<Annonce> {
     return this.http.get<Annonce>(`${this.baseUrl}/${id}`);
+  }
+
+
+  getAll(): Observable<Annonce[]> {
+    return this.http.get<Annonce[]>(`${this.baseUrl}`).pipe(
+      map(response => response)
+      );
   }
 
   
@@ -54,7 +61,7 @@ export class AnnonceService {
       return this.http.get<getCount>(`${this.baseUrl}`).pipe(
         map(response => response.page.totalElements)
         );
-    ;
+    
     }
   
    recentAdd(): Observable<Annonce[]> {
@@ -80,8 +87,34 @@ export class AnnonceService {
     );
 
    }
-    
+
+
+   searchBynomandtype(nom :string,type:string): Observable<Annonce[]> {
+    const searchUrl = `${this.baseUrl}/search/findByNomEcoleAndTypeAndAvailableTrue?nom=${nom}&type=${type}`;
+    return this.http.get<getResponse>(searchUrl).pipe(
+    map(response => response._embedded.annonces)
+    );
+   
   }
+
+  searchBytype(type:string): Observable<Annonce[]> {
+    const searchUrl = `${this.baseUrl}/search/findByTypeAndAvailableTrue?type=${type}`;
+    return this.http.get<getResponse>(searchUrl).pipe(
+    map(response => response._embedded.annonces)
+    );
+   
+  }
+
+
+  searchBytypeandcap(type:string,capacity:number): Observable<Annonce[]> {
+    const searchUrl = `${this.baseUrl}/search/findByTypeAndCapaciteGreaterThanEqualAndAvailableTrue?type=${type}&nombre=${capacity}`;
+    return this.http.get<getResponse>(searchUrl).pipe(
+    map(response => response._embedded.annonces)
+    );
+   
+  }
+    
+}
   
   interface getResponse{
     _embedded : {

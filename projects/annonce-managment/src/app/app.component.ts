@@ -15,7 +15,6 @@ export class AppComponent {
   
   
   @ViewChild('sidenav', { static: true }) sidenav: MatSidenav;
-  //@ViewChild('toolbar', { static: true }) toolbar:  ElementRef;
   barPosition: any;
   @Input() formData;
   constructor(private formDataService: FormDataService) { }

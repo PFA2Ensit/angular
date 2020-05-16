@@ -6,12 +6,14 @@ import { AnnonceService } from '../annonce.service';
 //import { Annonce } from '../Annonce';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Annonceur ,Annonce}            from '../data/formData.model';
+import { AuthenticationService } from 'src/app/service/authentication.service';
 @Component({
   selector: 'app-result',
   templateUrl: './result.component.html',
   styleUrls: ['./result.component.css']
 })
 export class ResultComponent implements OnInit {
+  annonceur : Annonceur;
 
   title = 'Review and submit';
   @Input() formData: FormData;
@@ -19,14 +21,14 @@ export class ResultComponent implements OnInit {
   personal: Annonceur ;
   annonce : Annonce;
   submitted = false;
-  constructor(private annonceService: AnnonceService,private formDataService: FormDataService) {
+  constructor(private annonceService: AnnonceService,private formDataService: FormDataService,private loginservice: AuthenticationService ) {
   }
 
   ngOnInit() {
       this.formData = this.formDataService.getFormData();
       this.isFormValid = this.formDataService.isFormValid();
-      console.log(this.formData);
       console.log('Result feature loaded!');
+      
   }
 
   newAnnonce(): void {
@@ -37,8 +39,12 @@ export class ResultComponent implements OnInit {
 
   save() {
     console.log(this.formData);
-
-    this.annonceService.createAnnonce(this.formData)
+    let user = sessionStorage.getItem("username");
+    /*this.loginservice.userDetails(user).subscribe(
+      data =>  console.log(data) , error => console.log(error)
+     
+    );*/
+    this.annonceService.createAnnonce(this.formData,user)
           .subscribe(data => console.log(data), error => console.log(error));
 
     this.annonce = new Annonce();

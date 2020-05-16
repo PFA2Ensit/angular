@@ -7,7 +7,7 @@ export class Annonce{
     nomEcole : string; 
     prix: number;
     description: string;
-    nbPlace: number;
+    capacite: number;
     type: string;
     image_url:string;
     date_ajout: Date;

@@ -155,50 +155,7 @@
             <!-- Property Content -->
             <div class="col-lg-7 offset-lg-1">
                 <div class="property_content">
-                    <div class="property_icons">
-                        <div class="property_title">Extra Facilities</div>
-                         <div class="property_rooms d-flex flex-sm-row flex-column align-items-start justify-content-start">
-
-                            <!-- Property Room Item -->
-                            <div class="property_room">
-                                <div class="property_room_title">Bedrooms</div>
-                                <div class="property_room_content d-flex flex-row align-items-center justify-content-start">
-                                    <div class="room_icon"><img src="assets/images/room_1.png" alt=""></div>
-                                    <div class="room_num">4</div>
-                                </div>
-                            </div>
-
-                            <!-- Property Room Item -->
-                            <div class="property_room">
-                                <div class="property_room_title">Bathrooms</div>
-                                <div class="property_room_content d-flex flex-row align-items-center justify-content-start">
-                                    <div class="room_icon"><img src="assets/images/room_2.png" alt=""></div>
-                                    <div class="room_num">3</div>
-                                </div>
-                            </div>
-
-                            <!-- Property Room Item -->
-                            <div class="property_room">
-                                <div class="property_room_title">Wifi</div>
-                                <div class="property_room_content d-flex flex-row align-items-center justify-content-start">
-                                    <div class="room_icon"><img src="assets/images/room_3.png" alt=""></div>
-                                    <div class="room_num">7100 Sq Ft</div>
-                                </div>
-                            </div>
-
-                            <!-- Property Room Item -->
-                            <div class="property_room">
-                                <div class="property_room_title">Patio</div>
-                                <div class="property_room_content d-flex flex-row align-items-center justify-content-start">
-                                    <div class="room_icon"><img src="assets/images/room_4.png" alt=""></div>
-                                    <div class="room_num">1</div>
-                                </div>
-                            </div>
-
-                            
-
-                        </div>
-                    </div>
+                    <p id="address">{{annonce.nomEcole}}</p>
 
                     <!-- Description -->
 
@@ -215,11 +172,21 @@
                     <div class="property_map">
                         <div class="property_title">Property on map</div>
                         <div class="property_map_container">
-
+                            <div class="form-group">
+                                <label>Enter address</label>
+                                <input type="text" class="form-control" (keydown.enter)="$event.preventDefault()" placeholder="Search Nearest Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search>
+                              </div>
+                             
+                              
                             <!-- Google Map -->
                             <div id="google_map" class="google_map">
                                 <div class="map_container">
-                                    <div id="map"></div>
+                                    <div id="map">
+                                        <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
+                                            <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
+                                              (dragEnd)="markerDragEnd($event)"></agm-marker>
+                                          </agm-map>
+                                    </div>
                                 </div>
                             </div>
 

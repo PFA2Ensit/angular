@@ -120,8 +120,8 @@
                 <div class="section_subtitle">Search your dream home</div>
             </div>
             <div id="filter" class="col"> 
+                <span id="text" style="color: blueviolet;">Filter by price</span>
                 <select [(ngModel)]="chosenMod" (ngModelChange)="modo()" class="search_form_select">
-                    <option  disabled selected>Price</option>
                     <option value="asc">from low to heigth</option>
                     <option value="desc">from heigth to low</option>
                 </select>
@@ -147,8 +147,8 @@
                             <span>{{annonce.genre}}</span>
                         </div>
                         <div>
-                            <div class="property_icon"><img src="assets/images/icon_2.png" alt=""></div><span>3
-                                Bedrooms</span>
+                            <div class="property_icon"><img src="assets/images/icon_2.png" alt=""></div><span>
+                                {{annonce.capacite}} Bedrooms</span>
                         </div>
                         <div>
                             <div class="property_icon"><img src="assets/images/icon_3.png" alt=""></div><span>3
@@ -161,8 +161,12 @@
                     </div>
                 </div>
             </div>
+            <div *ngIf="annonces?.length == 0" class="col-md-12 alert alert-warning mt-3"> 
+                No announce found
+            </div>
 
         </div>
 
     </div>
 </div>
+

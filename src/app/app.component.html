@@ -20,12 +20,17 @@
       <a routerLink="new" mat-list-item>
         <mat-icon>content_paste</mat-icon> Recent adds
       </a>
-      <a routerLink="login" mat-list-item>
-        <mat-icon>account_circle</mat-icon> Registration
-      </a>
+     
       <a routerLink="login"  mat-list-item>
-        <mat-icon>lock</mat-icon> Login
+        <mat-icon>lock</mat-icon> Sign In/Sign Up
       </a>
+      <a mat-list-item>
+        <button *ngIf="loggedIn" (click)="logout()">logout</button>
+      </a>
+      <a *ngIf="loggedIn" routerLink="add"  mat-list-item>
+        <mat-icon>lock</mat-icon> add announce
+      </a>
+
          
        
     </mat-nav-list>

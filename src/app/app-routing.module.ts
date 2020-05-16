@@ -7,6 +7,8 @@ import { UniversitiesComponent } from './universities/universities.component';
 import { ProposComponentComponent } from './propos-component/propos-component.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { AnnonceListComponent } from './list/annonce-list.component';
+import { AnnonceComponent } from 'projects/annonce-managment/src/app/annonce/annonce.component';
+import { ResultComponent } from 'projects/annonce-managment/src/app/result/result.component';
 
 const routes: Routes = [
 { path: 'home', component: CarouselComponent},
@@ -15,7 +17,16 @@ const routes: Routes = [
 { path: 'login', component: ContactComponentComponent },
 { path: 'ecole/:nom', component: AnnonceListComponent },
 { path: 'search/:name/:type/:capacity', component: AnnonceListComponent },
-{ path: 'details/:id', component: DetailsComponent }
+{ path: 'details/:id', component: DetailsComponent },
+{ path: 'search/:name/:type', component: AnnonceListComponent },
+{ path: 'search/:type', component: AnnonceListComponent },
+{ path: 'add', component: AnnonceComponent },
+{path: 'result',  component: ResultComponent},
+{ path: 'search', component: AnnonceListComponent }
+
+
+
+
 
 
 

@@ -13,9 +13,9 @@
   #filter{
       position: absolute;
       top: 26%;
-      left:70%;
+      left:85%;
       margin-bottom: 1em;
-      width: 150px;
+      width: 180px;
    padding: .25em;
    border: 0;
   border-bottom: 2px solid currentcolor; 
@@ -24,4 +24,9 @@
   border-radius: 0;
      border-bottom-color:purple;
   
+  }
+
+  #text{
+     position: absolute;
+     top:35%;
   }

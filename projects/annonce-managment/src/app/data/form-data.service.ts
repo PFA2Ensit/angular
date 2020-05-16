@@ -39,13 +39,13 @@ export class FormDataService {
         // Return the Properties data
         var annonce: Annonce = {
           //address: this.formData.address,
-          //property:this.formData.property,
+          prop:this.formData.prop,
           prix:this.formData.prix ,
-          nom_ecole:this.formData.nom_ecole ,
+          nomEcole:this.formData.nomEcole ,
           image_url:this.formData.image_url ,
           //genre:this.formData.genre,
           type:this.formData.type,
-          nb_place:this.formData.nb_place,
+          capacite:this.formData.capacite,
           description: this.formData.description,
         };
         return annonce;
@@ -54,13 +54,13 @@ export class FormDataService {
     setProperties(data: Annonce) {
         // Update the Address data only when the Address Form had been validated successfully
         //this.formData.address = data.address;
-        //this.formData. property = data.property;
+        this.formData. prop = data.prop;
         this.formData.prix = data.prix;
-        this.formData.nom_ecole = data.nom_ecole;
+        this.formData.nomEcole = data.nomEcole;
         this.formData.image_url= data.image_url;
         //this.formData.genre = data.genre;
         this.formData.type = data.type;
-        this.formData.nb_place = data.nb_place;
+        this.formData.capacite = data.capacite;
         this.formData.description= data.description;
 
    

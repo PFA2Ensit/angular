@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+/*import { Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { AnnonceService } from '../annonce.service';
 //import { Annonce } from '../Annonce';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -69,4 +69,49 @@ goToNext(form: any) {
     this.save();    
   }
 
+}*/
+
+import { Component, OnInit } from '@angular/core';
+import { Router }              from '@angular/router';
+import { FormsModule } from '@angular/forms';
+
+import { Annonce }             from '../data/formData.model';
+import { FormDataService }     from '../data/form-data.service';
+@Component({
+  selector: 'app-annonce',
+  templateUrl: './annonce.component.html',
+  styleUrls: ['./annonce.component.css']
+})
+export class AnnonceComponent implements OnInit {
+  title = 'Fill with local properties';
+  property: Annonce;
+  form: any;
+    
+    constructor(private router: Router, private formDataService: FormDataService) {
+    }
+
+    ngOnInit() {
+        this.property = this.formDataService.getProperties();
+        console.log('Address feature loaded!');
+    }
+
+    save(form: any): boolean {
+        if (!form.valid) {
+            return false;
+        }
+            
+        this.formDataService.setProperties(this.property);
+        return true;
+    }
+
+    
+
+    goToNext(form: any) {
+        if (this.save(form)) {
+            // Navigate to the result page
+            this.router.navigate(['/result']);
+        }
+    }
+
 }
+

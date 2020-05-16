@@ -4,6 +4,8 @@ import { MatSidenav } from '@angular/material/sidenav';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 
 import 'jarallax';
+import { AuthenticationService } from './service/authentication.service';
+import { Router } from '@angular/router';
 declare var jarallax: any;
 @Component({
   selector: 'app-root',
@@ -14,7 +16,9 @@ export class AppComponent {
   title = 'project';
   opened = true;
   sticky: boolean = false;
-  
+  loggedIn : boolean = false;
+  constructor(private router: Router,
+    private loginservice: AuthenticationService) { }
   @ViewChild('sidenav', { static: true }) sidenav: MatSidenav;
   //@ViewChild('toolbar', { static: true }) toolbar:  ElementRef;
   barPosition: any;
@@ -29,6 +33,10 @@ export class AppComponent {
     } else {
       this.sidenav.fixedTopGap = 65;
       this.opened = true;
+    }
+    if (this.loginservice.isUserLoggedIn()){
+      this.loggedIn=true;
+      console.log(this.loggedIn);
     }
   }
   ngAfterViewInit() {
@@ -65,6 +73,10 @@ export class AppComponent {
         } else {
             this.sticky = false;
         }
+    }
+
+    logout(){
+      return this.loginservice.logOut();
     }
 
   }

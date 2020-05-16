@@ -1,4 +1,4 @@
-<div class="container">
+<!--<div class="container">
 <form  #personalForm="ngForm"  novalidate>
     
   
@@ -21,7 +21,82 @@
         
     
 </form>
-</div>        
+</div> -->  
+
+<div class="container">
+
+  <form  #addressForm="ngForm" novalidate>
+
+      <h4 class="head text-center">{{title}}</h4>
+      <br />
+
+      <!--<label class="control-label" for="address"> Address</label>
+      <input class="form-control input-md" #address="ngModel" required id="address" name="address" type="text"
+          placeholder="Enter full Address" [(ngModel)]="property.address">
+      <div class="alert alert-danger" [hidden]="address.valid"> Address is required</div>-->
+
+      
+
+      <label class="control-label" for="state">University</label>
+      <select class="form-control input-md" #university="ngModel" required id="university" name="university"
+          [(ngModel)]="property.nomEcole">
+          <option value="Ensit" selected>Ensit</option>
+          <option value="Isi">Isi</option>
+          <option value="Fst">Fst</option>
+          <option value="Enit">Enit</option>
+          <option value="Ensi">Ensi</option>
+          <option value="Essect">Essect</option>
+
+      </select>
+      <div class="alert alert-danger" [hidden]="university.valid">University is required</div>
+
+      <!--<label class="control-label" for="state">prop</label>
+      <select class="form-control input-md" #university="ngModel" required id="prop" name="prop"
+          [(ngModel)]="property.prop" multiple>
+          <option value="wifi" selected>wifi</option>
+          <option value="phone">phone</option>
+          <option value="bath">bath</option>
+          <option value="bus">bus</option>
+          
+
+      </select>-->
+
+      <label class="control-label" for="Type">Type</label>
+      <select class="form-control input-md" #type="ngModel" required id="type" name="type" [(ngModel)]="property.type">
+          <option value="House" selected>House</option>
+          <option value="Foyer">Foyer</option>
+      </select>
+      <div class="alert alert-danger" [hidden]="type.valid">Type is required</div>
+
+
+     
+      <label class="control-label" for="price">Price</label>
+      <input class="form-control input-md" #price="ngModel" required id="price" name="price" type="text"
+          placeholder="Enter price" [(ngModel)]="property.prix">
+      <div class="alert alert-danger" [hidden]="price.valid">Price is required</div>
+
+      <label class="control-label" for="state">Image URL</label>
+      <input class="form-control input-md" #image="ngModel" required id="image" name="image" type="file"
+          [(ngModel)]="property.image_url">
+      <div class="alert alert-danger" [hidden]="image.valid">Image is required</div>
+      <label class="control-label" for="numberOfPersons">number Of Persons</label>
+      <input class="form-control input-md" #numberOfPersons="ngModel" id="numberOfPersons" name="numberOfPersons"
+          type="number" min="1" [(ngModel)]="property.capacite">
+
+
+      <label class="control-label" for="description">Description</label>
+      <input class="form-control input-md" #description="ngModel" required id="description" name="description"
+          type="text" placeholder="Enter description" [(ngModel)]="property.description">
+
+      
+      <button class="btn btn-outline-rounded btn-info" [disabled]="!addressForm.valid"
+          (click)="goToNext(addressForm)"> Next <span style="margin-left:10px;"
+              class="glyphicon glyphicon-arrow-right"></span></button>
+
+
+
+  </form>
+</div>
             
             
 
