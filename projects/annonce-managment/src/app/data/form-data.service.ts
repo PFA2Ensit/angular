@@ -1,22 +1,31 @@
 import { Injectable } from '@angular/core';
 import { FormData,Annonceur,Annonce }       from './formData.model';
+import { AuthenticationService } from 'src/app/service/authentication.service';
 //import { Annonce } from '../Annonce';
 //import { Annonceur }            from '../Annonceur';
 @Injectable({
   providedIn: 'root'
 })
 export class FormDataService {
+    //private annonceur: Annonceur = new Annonceur();
 
-  constructor() { }
+  constructor(private loginservice: AuthenticationService) {
+    let user = sessionStorage.getItem("username");
+    this.loginservice.user(user).subscribe(
+      error => console.log(error)
+     
+    );
+    
+    let obj = JSON.parse(sessionStorage.getItem("ss"));
+    console.log(obj);
 
-
+   }
   private formData: FormData = new FormData();
-  private annonceur: Annonceur = new Annonceur();
 
   private isPersonalFormValid: boolean = false;
    
 
-    getPersonal(): Annonceur {
+   /* getPersonal(): Annonceur {
         var personal: Annonceur = {
             phone: this.annonceur.phone,
             email: this.annonceur.email
@@ -29,7 +38,7 @@ export class FormDataService {
         this.isPersonalFormValid = true;
         this.annonceur.phone = data.phone;
         this.annonceur.email = data.email;
-    }
+    }*/
 
     
 
@@ -47,6 +56,7 @@ export class FormDataService {
           type:this.formData.type,
           capacite:this.formData.capacite,
           description: this.formData.description,
+          annonceur : JSON.parse(sessionStorage.getItem("ss"))
         };
         return annonce;
     }
@@ -54,7 +64,7 @@ export class FormDataService {
     setProperties(data: Annonce) {
         // Update the Address data only when the Address Form had been validated successfully
         //this.formData.address = data.address;
-        this.formData. prop = data.prop;
+        this.formData.prop = data.prop;
         this.formData.prix = data.prix;
         this.formData.nomEcole = data.nomEcole;
         this.formData.image_url= data.image_url;
@@ -62,6 +72,7 @@ export class FormDataService {
         this.formData.type = data.type;
         this.formData.capacite = data.capacite;
         this.formData.description= data.description;
+        this.formData.annonceur = data.annonceur;
 
    
     }

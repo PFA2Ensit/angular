@@ -9,6 +9,8 @@ export class FormData {
     prix: number=0;
     type: string='';
     prop:string='';
+    annonceur : Annonceur;
+
     
 
     clear() {
@@ -24,8 +26,11 @@ export class FormData {
 }
 
 export class Annonceur {
+    id :number
     email:string;
     phone:string;
+    username :string;
+    password : string;
 
 }
 
@@ -37,6 +42,7 @@ export class Annonce {
     capacite : number=0;
     description : string ='';
     prop:string='';
+    annonceur : Annonceur;
 
     
 }

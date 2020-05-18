@@ -26,6 +26,13 @@ export class AppComponent {
     this.barPosition = this.barElement.nativeElement;
 }*/
   ngOnInit() {
+
+    let user = sessionStorage.getItem("username");
+    this.loginservice.user(user).subscribe(
+      data =>  console.log(data) , error => console.log(error)
+     
+    );
+    
     console.log(window.innerWidth)
     if (window.innerWidth < 768) {
       this.sidenav.fixedTopGap = 55;

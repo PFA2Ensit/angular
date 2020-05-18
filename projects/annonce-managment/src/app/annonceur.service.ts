@@ -4,26 +4,37 @@ import { HttpClient ,HttpHeaders
 import { Observable } from 'rxjs';
 import { Annonce } from './Annonce';
 import { map } from 'rxjs/operators';
+import { AuthenticationService } from 'src/app/service/authentication.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AnnonceurService {
+  //id : number;
 
-  private baseUrl = 'http://localhost:8080/api/v1/annonceurs/'+1+'/annonce';
+  private baseUrl = 'http://localhost:8080/dAOUsers';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient ,private loginservice: AuthenticationService) { 
+    let user = sessionStorage.getItem("username");
+  this.loginservice.userDetails(user).subscribe(
+    data =>  sessionStorage.setItem("id",""+data) , error => console.log(error)
+   
+  );
+  }
 
   getAnnonceList(): Observable<Annonce[]> {
-    return this.http.get<getResponse>(this.baseUrl).pipe(
+     let id: number = Number(sessionStorage.getItem('id'));
+     console.log(id);
+    return this.http.get<getResponse>(`${this.baseUrl}/${id}/annonce`).pipe(
     map(response => response._embedded.annonces)
     );
     
     
   }
+
 
   
 

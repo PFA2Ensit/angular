@@ -28,6 +28,8 @@ export class ResultComponent implements OnInit {
       this.formData = this.formDataService.getFormData();
       this.isFormValid = this.formDataService.isFormValid();
       console.log('Result feature loaded!');
+      //JSON.parse(sessionStorage.getItem("user"));
+
       
   }
 
@@ -39,12 +41,12 @@ export class ResultComponent implements OnInit {
 
   save() {
     console.log(this.formData);
-    let user = sessionStorage.getItem("username");
-    /*this.loginservice.userDetails(user).subscribe(
+    /*let user = sessionStorage.getItem("username");
+    this.loginservice.userDetails(user).subscribe(
       data =>  console.log(data) , error => console.log(error)
      
     );*/
-    this.annonceService.createAnnonce(this.formData,user)
+    this.annonceService.createAnnonce(this.formData)
           .subscribe(data => console.log(data), error => console.log(error));
 
     this.annonce = new Annonce();

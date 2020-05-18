@@ -12,8 +12,8 @@ export class AnnonceService {
   private baseUrl = 'http://localhost:8080/annonces';
   constructor(private http: HttpClient) { }
 
-  createAnnonce(annonce: Object,username : any ): Observable<Object> {
-    return this.http.post(`${this.baseUrl}`, annonce,username);
+  createAnnonce(annonceur: Object): Observable<Object> {
+    return this.http.post(`${this.baseUrl}`, annonceur);
   }
 
   

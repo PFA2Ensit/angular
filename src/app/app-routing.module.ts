@@ -9,6 +9,7 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { AnnonceListComponent } from './list/annonce-list.component';
 import { AnnonceComponent } from 'projects/annonce-managment/src/app/annonce/annonce.component';
 import { ResultComponent } from 'projects/annonce-managment/src/app/result/result.component';
+//import { AnnonceListComponent} from 'projects/annonce-managment/src/app//annonce-list/annonce-list.component';
 
 const routes: Routes = [
 { path: 'home', component: CarouselComponent},
@@ -23,6 +24,7 @@ const routes: Routes = [
 { path: 'add', component: AnnonceComponent },
 {path: 'result',  component: ResultComponent},
 { path: 'search', component: AnnonceListComponent }
+//{ path: 'list', component: AnnonceListComponent }
 
 
 
