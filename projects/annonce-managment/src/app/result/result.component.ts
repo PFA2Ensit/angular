@@ -7,6 +7,8 @@ import { AnnonceService } from '../annonce.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Annonceur ,Annonce}            from '../data/formData.model';
 import { AuthenticationService } from 'src/app/service/authentication.service';
+import { DomSanitizer } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-result',
   templateUrl: './result.component.html',
@@ -21,7 +23,7 @@ export class ResultComponent implements OnInit {
   personal: Annonceur ;
   annonce : Annonce;
   submitted = false;
-  constructor(private annonceService: AnnonceService,private formDataService: FormDataService,private loginservice: AuthenticationService ) {
+  constructor(private router:Router,private sanitizer: DomSanitizer,private annonceService: AnnonceService,private formDataService: FormDataService,private loginservice: AuthenticationService ) {
   }
 
   ngOnInit() {
@@ -56,9 +58,17 @@ export class ResultComponent implements OnInit {
       alert('form submitted!');
       this.submitted = true;
       this.save(); 
-      this.formData = this.formDataService.resetFormData();
+      //this.formData = this.formDataService.resetFormData();
       this.isFormValid = false;
+      this.gotoList();
      
   }
+  gotoList() {
+    this.router.navigate(['/list']);
+  }
+
+public getSantizeUrl(url : string) {
+    return this.sanitizer.bypassSecurityTrustUrl(url);
+}
 
 }

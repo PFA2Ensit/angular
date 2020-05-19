@@ -1,8 +1,12 @@
-.container{
+/*.container{
     position: absolute;
     top:9%;
     background-color: blueviolet;
     left:5%;
     width:800px;
     height: 700px;
+}*/
+
+h1{
+    color:black;
 }

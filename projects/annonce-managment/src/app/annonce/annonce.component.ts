@@ -86,6 +86,8 @@ export class AnnonceComponent implements OnInit {
   title = 'Fill with local properties';
   property: Annonce;
   form: any;
+  item  =  {1: 'girls', 2: 'boys'}; 
+   
     
     constructor(private router: Router, private formDataService: FormDataService) {
     }

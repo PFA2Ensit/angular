@@ -1,14 +1,18 @@
 import { Injectable } from '@angular/core';
 import { FormData,Annonceur,Annonce }       from './formData.model';
 import { AuthenticationService } from 'src/app/service/authentication.service';
+import { NgForm } from '@angular/forms';
 //import { Annonce } from '../Annonce';
 //import { Annonceur }            from '../Annonceur';
 @Injectable({
   providedIn: 'root'
 })
 export class FormDataService {
+    forms:NgForm ;
+    gender =this.forms?.controls['gender'].value;
+    proper = this.forms?.controls['extra'].value;
+    
     //private annonceur: Annonceur = new Annonceur();
-
   constructor(private loginservice: AuthenticationService) {
     let user = sessionStorage.getItem("username");
     this.loginservice.user(user).subscribe(
@@ -18,13 +22,15 @@ export class FormDataService {
     
     let obj = JSON.parse(sessionStorage.getItem("ss"));
     console.log(obj);
+    this.formData.genre = this.gender;
+    this.formData.prop=this.proper;
+
 
    }
   private formData: FormData = new FormData();
 
   private isPersonalFormValid: boolean = false;
    
-
    /* getPersonal(): Annonceur {
         var personal: Annonceur = {
             phone: this.annonceur.phone,
@@ -49,10 +55,10 @@ export class FormDataService {
         var annonce: Annonce = {
           //address: this.formData.address,
           prop:this.formData.prop,
-          prix:this.formData.prix ,
+          price:this.formData.price ,
           nomEcole:this.formData.nomEcole ,
           image_url:this.formData.image_url ,
-          //genre:this.formData.genre,
+          genre:this.formData.genre,
           type:this.formData.type,
           capacite:this.formData.capacite,
           description: this.formData.description,
@@ -65,10 +71,10 @@ export class FormDataService {
         // Update the Address data only when the Address Form had been validated successfully
         //this.formData.address = data.address;
         this.formData.prop = data.prop;
-        this.formData.prix = data.prix;
+        this.formData.price= data.price;
         this.formData.nomEcole = data.nomEcole;
         this.formData.image_url= data.image_url;
-        //this.formData.genre = data.genre;
+        this.formData.genre = data.genre;
         this.formData.type = data.type;
         this.formData.capacite = data.capacite;
         this.formData.description= data.description;

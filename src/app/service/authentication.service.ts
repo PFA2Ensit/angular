@@ -67,6 +67,12 @@ export class AuthenticationService {
     );
     
   }
+
+  getUser(username : string){
+    const searchUrl = `${this.baseUrl}/findByUsername?username=${username}`;
+    return this.httpClient.get<Annonceur>(searchUrl);
+         
+  }
 }
   
 

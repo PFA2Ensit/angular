@@ -4,7 +4,6 @@ import { AngularMaterialModule } from './material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AnnonceComponent } from './annonce/annonce.component';
-import { MenuComponent } from './menu/menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { AnnonceListComponent } from './annonce-list/annonce-list.component';
@@ -13,17 +12,20 @@ import { UpdateAnnonceComponent } from './update-annonce/update-annonce.componen
 import { ResultComponent } from './result/result.component';
 import { FormDataService }    from './data/form-data.service';
 import {PropertiesComponent} from './properties/properties.component';
+import { ListeComponent } from './liste/liste.component';
+import { ProfileComponent } from './profile/profile.component';
 const providers = []
 
 @NgModule({
   declarations: [
     AppComponent,
     AnnonceComponent,
-    MenuComponent,
     AnnonceListComponent,
     UpdateAnnonceComponent,
     ResultComponent,
-    PropertiesComponent
+    PropertiesComponent,
+    ListeComponent,
+    ProfileComponent
    
   ],
   imports: [

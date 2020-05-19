@@ -1,11 +1,9 @@
-<div class="container">
+<!--<div class="container">
 
     <h3 class="head text-center">{{title}}</h3>
    
    <br>
-                    <!--<label  for="name">Contact info: </label> 
-                    {{Annonceur.email + ' ' + Annonceur.phone}}
-                    -->
+                   
                 <br>
                    <label  for="address">Local info: </label>
                     <br/>
@@ -21,4 +19,41 @@
         <button type="button" class="btn btn-success btn-outline-rounded"  (click)="submit()"> Submit <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button>
     </div>
 
-</div>
+</div>-->
+
+
+<!-- Page Content -->
+<div class="container">
+
+    <!-- Portfolio Item Heading -->
+    <h1 class="my-4">{{title}}
+      
+    </h1>
+    
+    <!-- Portfolio Item Row -->
+    <div class="row">
+  
+      <div class="col-md-8">
+        <img class="img-fluid" src="http://placehold.it/750x500" alt="">
+       
+      </div>
+  
+      <div class="col-md-4">
+        <h3 class="my-3">Project Description</h3>
+        <p>{{formData.description}}</p>
+        <h3 class="my-3">Project Details</h3>
+        <ul>
+          <li><p>Type : {{formData.type}}</p></li>
+          <li><p>Institution : {{formData.nomEcole }}</p></li>
+          <li><p>capacity :{{formData.capacite}}</p></li>
+          <li><p>gender :{{formData.genre}}</p></li>
+          <li><p>extra :{{formData.prop}}</p></li>
+          <li></li>
+        </ul>
+      </div>
+  
+    </div>
+    <div class="text-center">
+        <button type="button" class="btn btn-primary btn-outline-rounded"  (click)="submit()"> Submit <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button>
+    </div>
+    </div>

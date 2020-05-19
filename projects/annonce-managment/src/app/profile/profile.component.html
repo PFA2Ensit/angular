@@ -1,0 +1,38 @@
+<div class="container">
+    <h1 class="my-4">{{title}}
+      
+    </h1>
+    <div class="row">
+        <div class="col-xs-36 col-sm-18 col-md-18">
+            <div class="well well-sm">
+                <div class="row">
+                    <div class="col-sm-8 col-md-4">
+                        <img src="http://placehold.it/600x800" alt="" class="img-rounded img-responsive" />
+                    </div>
+                    <div class="col-sm-6 col-md-8">
+                        
+                        <p>
+                            <mat-icon>account_circle</mat-icon>
+                        {{user.username}}
+                            <br />
+                            
+                            <mat-icon >email</mat-icon>
+                              {{user.email}}
+                            <br />
+                            
+                            <mat-icon>phone_in_talk</mat-icon>
+                                 {{user.phone}}
+                         </p>
+                        <!-- Split button -->
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary">
+                                Update contact info</button>
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

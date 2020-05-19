@@ -26,7 +26,7 @@ export class AnnonceurService {
   }
 
   getAnnonceList(): Observable<Annonce[]> {
-     let id: number = Number(sessionStorage.getItem('id'));
+     let id: number = +sessionStorage.getItem('id');
      console.log(id);
     return this.http.get<getResponse>(`${this.baseUrl}/${id}/annonce`).pipe(
     map(response => response._embedded.annonces)

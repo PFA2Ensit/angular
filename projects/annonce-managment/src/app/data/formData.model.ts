@@ -3,10 +3,11 @@ import {Deserializable} from "../deserializable.model";
 export class FormData {
     
     description : string ='';
+    genre : string ='';
     image_url :string='';
     capacite : number=0;
     nomEcole: string = '';
-    prix: number=0;
+    price: number=0;
     type: string='';
     prop:string='';
     annonceur : Annonceur;
@@ -15,7 +16,7 @@ export class FormData {
 
     clear() {
     
-    this.prix=0;
+    this.price=0;
     this.nomEcole= '';
     this.image_url ='';
     this.type='';
@@ -35,7 +36,8 @@ export class Annonceur {
 }
 
 export class Annonce {
-    prix: number=0;
+    genre : string ='';
+    price: number=0;
     nomEcole: string = '';
     image_url :string='';
     type: string='';

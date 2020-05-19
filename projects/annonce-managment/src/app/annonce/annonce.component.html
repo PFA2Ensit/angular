@@ -1,44 +1,17 @@
-<!--<div class="container">
-<form  #personalForm="ngForm"  novalidate>
-    
-  
-      <h4 class="head text-center">{{title}}</h4>
-      <br/>
-     
-         
-            
-             <input class="form-control input-md" #phone="ngModel"  id="phone" name="phone" type="text" placeholder="Contact phone" [(ngModel)]="personal.phone">
-            <div class="alert alert-danger" [hidden]="phone.valid">Phone is required</div>
-                  <br>
-              
-             
-                <input class="form-control input-md" #email="ngModel" pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" id="email" name="email" type="text" placeholder="Email" [(ngModel)]="personal.email">
-                  <div class="alert alert-danger" [hidden]="email.valid">Email is required and must be valid</div>
-   <br>
-    
-                <button class="btn btn-outline-rounded btn-info" [disabled]="!personalForm.valid" (click)="goToNext(personalForm)"> Next <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button>
-            
-        
-    
-</form>
-</div> -->  
 
 <div class="container">
 
-  <form  #addressForm="ngForm" novalidate>
+  <form name="demo" #addressForm="ngForm" novalidate>
 
-      <h4 class="head text-center">{{title}}</h4>
+      <p id="head">{{title}}</p>
       <br />
 
-      <!--<label class="control-label" for="address"> Address</label>
-      <input class="form-control input-md" #address="ngModel" required id="address" name="address" type="text"
-          placeholder="Enter full Address" [(ngModel)]="property.address">
-      <div class="alert alert-danger" [hidden]="address.valid"> Address is required</div>-->
-
+     
       
+      <div class="left-div">
 
-      <label class="control-label" for="state">University</label>
-      <select class="form-control input-md" #university="ngModel" required id="university" name="university"
+      <p class="control-label" for="state">Institution</p>
+      <select class="form-control input-md" #university="ngModel" required id="university"  name="university"
           [(ngModel)]="property.nomEcole">
           <option value="Ensit" selected>Ensit</option>
           <option value="Isi">Isi</option>
@@ -50,44 +23,59 @@
       </select>
       <div class="alert alert-danger" [hidden]="university.valid">University is required</div>
 
-      <!--<label class="control-label" for="state">prop</label>
-      <select class="form-control input-md" #university="ngModel" required id="prop" name="prop"
-          [(ngModel)]="property.prop" multiple>
-          <option value="wifi" selected>wifi</option>
-          <option value="phone">phone</option>
-          <option value="bath">bath</option>
-          <option value="bus">bus</option>
-          
+      <p class="control-label" for="state">Gender</p>
+      
 
-      </select>-->
+      <p>
+         <!--- <select class="form-control input-md">
+              <option  value="boys"></option>
+              <option value="girls"></option>
+          </select>-->
+        <input type="radio" value="boys" name="gender" [(ngModel)]="property.genre" > Boys
+        <input type="radio"   value="girls" name="gender" [(ngModel)]="property.genre" > Girls
+     </p>
 
-      <label class="control-label" for="Type">Type</label>
+      <p class="control-label" for="Type">Type</p>
       <select class="form-control input-md" #type="ngModel" required id="type" name="type" [(ngModel)]="property.type">
           <option value="House" selected>House</option>
           <option value="Foyer">Foyer</option>
       </select>
       <div class="alert alert-danger" [hidden]="type.valid">Type is required</div>
+</div>
 
+<div class="right-div">
 
-     
-      <label class="control-label" for="price">Price</label>
+      <p class="control-label" for="price">Price</p>
       <input class="form-control input-md" #price="ngModel" required id="price" name="price" type="text"
-          placeholder="Enter price" [(ngModel)]="property.prix">
-      <div class="alert alert-danger" [hidden]="price.valid">Price is required</div>
+          placeholder="Enter price" [(ngModel)]="property.price">
+          <div class="alert alert-danger" [hidden]="price.valid">price is required</div>
 
-      <label class="control-label" for="state">Image URL</label>
+
+      <p class="control-label" for="state">Image URL</p>
       <input class="form-control input-md" #image="ngModel" required id="image" name="image" type="file"
           [(ngModel)]="property.image_url">
       <div class="alert alert-danger" [hidden]="image.valid">Image is required</div>
-      <label class="control-label" for="numberOfPersons">number Of Persons</label>
+
+      <p class="control-label" for="numberOfPersons">number Of Persons</p>
       <input class="form-control input-md" #numberOfPersons="ngModel" id="numberOfPersons" name="numberOfPersons"
-          type="number" min="1" [(ngModel)]="property.capacite">
+          type="number" min="1" [(ngModel)]="property.capacite" placeholder="choose number">
+
+          <p class="control-label" >Extra</p>
+
+          <div id="extra"><input type="checkbox" name="extra" [(ngModel)]="property.prop" ><p>Wifi</p></div>
+          <div id="extra"><input type="checkbox" name="extra" [(ngModel)]="property.prop" ><p>Bus </p></div> 
+          <div id="extra"><input type="checkbox" name="extra" [(ngModel)]="property.prop" ><p>Phone</p></div>
+          <div id="extra"><input type="checkbox" name="extra" [(ngModel)]="property.prop" ><p>Train </p></div>
 
 
-      <label class="control-label" for="description">Description</label>
-      <input class="form-control input-md" #description="ngModel" required id="description" name="description"
-          type="text" placeholder="Enter description" [(ngModel)]="property.description">
 
+</div>
+<div class="buttom">
+      <p class="control-label" for="description">Description</p>
+      <textarea rows="5" cols="60" class="form-control input-md" #description="ngModel" required id="description" name="description"
+          type="text" placeholder="Enter description" [(ngModel)]="property.description"></textarea>
+          <div class="alert alert-danger" [hidden]="description.valid">description is required</div>
+        </div>
       
       <button class="btn btn-outline-rounded btn-info" [disabled]="!addressForm.valid"
           (click)="goToNext(addressForm)"> Next <span style="margin-left:10px;"
