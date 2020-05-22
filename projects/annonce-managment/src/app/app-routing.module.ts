@@ -6,6 +6,7 @@ import { AnnonceComponent } from './annonce/annonce.component';
 import { ResultComponent } from './result/result.component';
 import { PropertiesComponent } from './properties/properties.component'
 import { ProfileComponent } from './profile/profile.component';
+import { SearchResultComponent } from './search-result/search-result.component';
 
 const routes: Routes = [{ path: '', redirectTo: 'home', pathMatch: 'full' },
 { path: 'annonces', component: ListeComponent },
@@ -13,7 +14,9 @@ const routes: Routes = [{ path: '', redirectTo: 'home', pathMatch: 'full' },
 { path: 'add', component: AnnonceComponent },
 { path: 'result',  component: ResultComponent},
 { path: 'properties',  component: PropertiesComponent},
-{ path: 'profile', component: ProfileComponent }
+{ path: 'profile', component: ProfileComponent },
+{ path: 's/:keyword', component: SearchResultComponent}
+
 
 
 ];

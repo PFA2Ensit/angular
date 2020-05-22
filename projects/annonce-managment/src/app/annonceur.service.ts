@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient ,HttpHeaders
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Annonce } from './Annonce';
 import { map } from 'rxjs/operators';
 import { AuthenticationService } from 'src/app/service/authentication.service';
+import { Annonce } from './data/formData.model';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +25,14 @@ export class AnnonceurService {
   );
   }
 
+  getAnnonceur(id: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/${id}`);
+  }
+  
+  updateAnnonceur(id: number, value: any): Observable<Object> {
+    return this.http.put(`${this.baseUrl}/${id}`, value);
+  }
+
   getAnnonceList(): Observable<Annonce[]> {
      let id: number = +sessionStorage.getItem('id');
      console.log(id);
@@ -33,6 +41,15 @@ export class AnnonceurService {
     );
     
     
+  }
+
+  searchAnnonce(keyword: string,annonceur: Object): Observable<Annonce[]>{
+    let id: number = +sessionStorage.getItem('id');
+    const searchUrl = `http://localhost:8080/annonces/search/searchbykeyword?name=${keyword}`;
+    return this.http.get<getResponse>(searchUrl,annonceur).pipe(
+      map(response => response._embedded.annonces)
+      );
+     ;
   }
 
 
@@ -48,3 +65,5 @@ interface getResponse{
   }
     
 }
+
+

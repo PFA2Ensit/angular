@@ -14,6 +14,10 @@ import { FormDataService }    from './data/form-data.service';
 import {PropertiesComponent} from './properties/properties.component';
 import { ListeComponent } from './liste/liste.component';
 import { ProfileComponent } from './profile/profile.component';
+import { SearchComponent } from './search/search.component';
+import { SearchResultComponent } from './search-result/search-result.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 const providers = []
 
 @NgModule({
@@ -25,7 +29,9 @@ const providers = []
     ResultComponent,
     PropertiesComponent,
     ListeComponent,
-    ProfileComponent
+    ProfileComponent,
+    SearchComponent,
+    SearchResultComponent
    
   ],
   imports: [
@@ -35,7 +41,8 @@ const providers = []
     AngularMaterialModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [{ provide: FormDataService, useClass: FormDataService }
    ],

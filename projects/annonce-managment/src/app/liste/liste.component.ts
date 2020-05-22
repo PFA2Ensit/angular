@@ -1,20 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { Annonce } from '../Annonce';
 import { Observable } from "rxjs";
 import { AnnonceService } from "../annonce.service";
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AnnonceurService } from "../annonceur.service";
+import { Annonce } from '../data/formData.model';
 @Component({
   selector: 'app-liste',
   templateUrl: './liste.component.html',
   styleUrls: ['./liste.component.css']
 })
 export class ListeComponent implements OnInit {
-
   annonces :Annonce [];
   id: number;
   constructor(private annonceService: AnnonceService,private annonceurService: AnnonceurService,
-    private router: Router) {
+    private router: Router,private _activatedRoute:ActivatedRoute) {
      }
 
   ngOnInit(): void {
@@ -45,4 +44,4 @@ export class ListeComponent implements OnInit {
     this.router.navigate(['details', id]);
   }
 
-}
+ }

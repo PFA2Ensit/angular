@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient ,HttpHeaders
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Annonce } from './data/formData.model';
+import { map } from 'rxjs/operators';
 
 //let headers = new HttpHeaders({ 'Access-Control-Allow-Origin': '*' });
 @Injectable({
@@ -35,4 +37,9 @@ export class AnnonceService {
     return this.http.get(`${this.baseUrl}`);
   }
 
+  
+
+  
+
 }
+

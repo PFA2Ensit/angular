@@ -49,8 +49,7 @@ $(document).ready(function()
 
 	initMenu();
 	initIntroSlider();
-	initPriceSlider();
-	initGoogleMap();
+	
 
 	/* 
 
@@ -170,34 +169,7 @@ $(document).ready(function()
 
 	*/
 
-    function initPriceSlider()
-    {
-		$('input[type="range"]').rangeslider(
-		{
-			// Feature detection the default is `true`.
-			// Set this to `false` if you want to use
-			// the polyfill also in Browsers which support
-			// the native <input type="range"> element.
-			polyfill: false,
-
-			// Default CSS classes
-			rangeClass: 'rangeslider',
-			disabledClass: 'rangeslider--disabled',
-			horizontalClass: 'rangeslider--horizontal',
-			verticalClass: 'rangeslider--vertical',
-			fillClass: 'rangeslider__fill',
-			handleClass: 'rangeslider__handle',
-
-			// Callback function
-			onInit: function() {},
-
-			// Callback function
-			onSlide: function(position, value) {},
-
-			// Callback function
-			onSlideEnd: function(position, value) {}
-		});
-    }
+    
 
     /* 
 
@@ -205,44 +177,5 @@ $(document).ready(function()
 
 	*/
 
-	function initGoogleMap()
-	{
-		var myLatlng = new google.maps.LatLng(36.286728,-5.278741);
-    	var mapOptions = 
-    	{
-    		center: myLatlng,
-	       	zoom: 17,
-			mapTypeId: google.maps.MapTypeId.ROADMAP,
-			draggable: true,
-			scrollwheel: false,
-			zoomControl: true,
-			zoomControlOptions:
-			{
-				position: google.maps.ControlPosition.RIGHT_CENTER
-			},
-			mapTypeControl: false,
-			scaleControl: false,
-			streetViewControl: false,
-			rotateControl: false,
-			fullscreenControl: true,
-			styles:
-			[
-			  
-			]
-    	}
-
-    	// Initialize a map with options
-    	map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
-		// Re-center map after window resize
-		google.maps.event.addDomListener(window, 'resize', function()
-		{
-			setTimeout(function()
-			{
-				google.maps.event.trigger(map, "resize");
-				map.setCenter(myLatlng);
-			}, 1400);
-		});
-	}
-
+	
 });

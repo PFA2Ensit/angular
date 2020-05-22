@@ -28,6 +28,7 @@ export class AnnonceService {
     return this.http.get<Annonce[]>(`${this.baseUrl}`).pipe(
       map(response => response)
       );
+  
   }
 
   
@@ -58,9 +59,9 @@ export class AnnonceService {
     }
 
     getCount(): Observable<any>{
-      return this.http.get<getCount>(`${this.baseUrl}`).pipe(
-        map(response => response.page.totalElements)
-        );
+      return this.http.get<getCount>(`${this.baseUrl}/search/count`).pipe(
+        map(response => response
+        ));
     
     }
   

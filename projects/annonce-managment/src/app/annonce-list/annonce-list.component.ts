@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Annonce } from '../Annonce';
 import { Observable } from "rxjs";
 import { AnnonceService } from "../annonce.service";
 import { Router } from '@angular/router';
 import { AnnonceurService } from "../annonceur.service";
+import { Annonce } from '../data/formData.model';
 
 @Component({
   selector: 'app-annonce-list',
