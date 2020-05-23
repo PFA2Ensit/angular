@@ -4,7 +4,7 @@ import { HttpClient ,HttpHeaders
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AuthenticationService } from 'src/app/service/authentication.service';
-import { Annonce } from './data/formData.model';
+import { Annonce } from './Annonce';
 
 @Injectable({
   providedIn: 'root'

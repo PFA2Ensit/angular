@@ -23,6 +23,15 @@ export class AnnonceService {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
 
+  getById(desc: string,annonceur: Object): Observable<Annonce>{
+    
+    const searchUrl = `http://localhost:8080/annonces/search/getAdd?desc=${desc}`;
+    return this.http.get<Annonce>(searchUrl,annonceur).pipe(
+      map(response => response)
+      );
+     
+  }
+
   
 
   updateAnnonce(id: number, value: any): Observable<Object> {
@@ -43,3 +52,8 @@ export class AnnonceService {
 
 }
 
+
+interface getResponse{
+  _embedded : {
+    annonces : Annonce[];
+  }}

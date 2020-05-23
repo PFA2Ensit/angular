@@ -1,9 +1,6 @@
-
-
 <div class="container">
-    <h1 class="my-4">{{title}}
-      
-    </h1>
+    <p id="head">{{title}}</p>
+    
     <div class="row">
         <div class="col-xs-36 col-sm-18 col-md-18">
             <div class="well well-sm">
@@ -14,49 +11,40 @@
                     <div class="col-sm-6 col-md-8">
                         <p>
                             <mat-icon>account_circle</mat-icon>
-                        {{user.username}}
-                    </p>
-                         <br><br><br>
-                        <table>
+                            {{user.username}}
+                        </p>
+                        <br><br>
 
-                            <thead>
-                                <tr>
-                                  <th> Email </th>
-                                  
-                                  <th>Phone</th>
-                                  
-                                </tr>
-                              </thead>
-                        <tr>
-            
-                            <td> <!--<mat-icon >email</mat-icon>-->
-                                {{user.email}} 
-                            
-                            </td>
-            
-                            <td>
-                               <!-- <mat-icon>phone_in_talk</mat-icon>-->
-                                     {{user.phone}}
-                             
-                            </td>
-                            <td>
-                                <div class="btn-group">
-                                    <button  name="edit_btn" (click)="open(mymodal)"  type="button" class="edit_btn btn btn-primary">
-                                        Update contact info</button>
-                                    
-                                    
-                                </div>
-                            </td>
+                        <p>
+                            <mat-icon>email</mat-icon>
+                            {{user.email}}
 
-                            </tr>
 
-                        </table>
-                        
-                                                        
-                            <br />
-                            
+
+
+                            <mat-icon>phone_in_talk</mat-icon>
+                            {{user.phone}}
+
+                        </p>
+
+                        <div class="btn-group">
+                            <button name="edit_btn" (click)="open(mymodal)" 
+                                type="button" class="edit_btn btn btn-primary">
+                                Update contact info</button>
+
+
+                        </div>
+
+
+
+
+
+
+
+                        <br />
+
                         <!-- Split button -->
-                        
+
                     </div>
                 </div>
             </div>
@@ -65,37 +53,38 @@
 </div>
 
 
-  
-  <!-- Modal -->
-  <ng-template #mymodal let-modal>
+
+<!-- Modal -->
+<ng-template #mymodal let-modal>
     <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Update Contact Info</h4>
-      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-        <span aria-hidden="true">×</span>
-      </button>
+        <h4 class="modal-title" id="modal-basic-title">Update Contact Info</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">×</span>
+        </button>
     </div>
     <div class="modal-body">
-      <form >
-  
-        
-        <input type="text"  name="update_id" id="update_id" />
+        <form>
+
+
+            <input type="text" name="update_id" id="update_id" />
 
             <div class="form-group">
                 <label> Email</label>
-                <input type="text" name="email" [(ngModel)]="annonceur.email" id="email" class="form-control" placeholder="Enter email ">
+                <input type="text" name="email" [(ngModel)]="annonceur.email" id="email" class="form-control"
+                    placeholder="Enter email ">
             </div>
             <div class="form-group">
                 <label>Phone</label>
-                <input type="text" name="phone" [(ngModel)]="annonceur.phone" id="phone" class="form-control" placeholder="Enter phone">
+                <input type="text" name="phone" [(ngModel)]="annonceur.phone" id="phone" class="form-control"
+                    placeholder="Enter phone">
             </div>
-            
-                   
-              </form>
+
+
+        </form>
     </div>
     <div class="modal-footer">
-    <button type="submit" (click)="onSubmit()" name="editbtn" class="btn btn-primary">Save</button>
-      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+        <button type="submit" (click)="onSubmit()" (click)="modal.close('Save')" name="editbtn"
+            class="btn btn-primary">Save</button>
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
     </div>
-  </ng-template>
-
-  
+</ng-template>

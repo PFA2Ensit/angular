@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AnnonceurService } from '../annonceur.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Annonce } from '../data/formData.model';
+import { Annonce } from '../Annonce';
 import { AuthenticationService } from 'src/app/service/authentication.service';
 import { AnnonceService } from '../annonce.service';
 

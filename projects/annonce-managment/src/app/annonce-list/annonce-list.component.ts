@@ -11,7 +11,17 @@ import { Annonce } from '../data/formData.model';
   styleUrls: ['./annonce-list.component.css']
 })
 export class AnnonceListComponent implements OnInit {
-  annonces :Annonce [];
+  constructor(private annonceService: AnnonceService,private annonceurService: AnnonceurService,
+    private router: Router) {
+     }
+  ngOnInit(): void {
+
+    
+    
+
+  }
+
+ /* annonces :Annonce [];
   id: number;
   constructor(private annonceService: AnnonceService,private annonceurService: AnnonceurService,
     private router: Router) {
@@ -43,6 +53,6 @@ export class AnnonceListComponent implements OnInit {
 
   annonceDetails(id: number){
     this.router.navigate(['details', id]);
-  }
+  }*/
 
 }

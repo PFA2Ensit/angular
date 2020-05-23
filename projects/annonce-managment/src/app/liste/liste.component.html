@@ -8,20 +8,91 @@
         </div>
         <div class="row properties_row">
             
-            <!-- Property -->
+           
             <div class="col-xl-4 col-lg-6 property_col" *ngFor="let annonce of annonces ">
                 <div class="property">
                     <div class="property_image">
                         <img src="http://placehold.it/250x300" alt="">
-                        <div class="tag_featured property_tag"> <a href="#" (click)="annonceDetails(annonce.id)">Details</a></div>
+                        <div class="tag_featured property_tag"> <a routerLink="/details/{{annonce.id}}">Details</a></div>
                     </div>
                     <div class="property_body text-center">
                         <div class="property_location">{{annonce.nomEcole}}</div>
                         <div class="property_price">{{annonce.prix}}</div>
+                        <div class="property_price">{{annonce.type}}</div>
                     </div>
                     <div class="property_footer d-flex flex-row align-items-center justify-content-start">
-                        <div><div class="property_icon"><button (click)="deleteAnnonce(annonce.id)" class="btn-success">Update</button></div></div>
-                        <div><div class="property_icon"><button (click)="deleteAnnonce(annonce.id)" class="btn-danger">Delete</button></div>
+                        <div><div class="property_icon"><a id="update"routerLink="/update/{{annonce.id}}">Update</a></div></div>
+                        <div><div class="property_icon"><button (click)="deleteAnnonce(annonce.id)" class="btn btn-danger">Delete</button></div>
                     </div>
                 </div>
             </div>
+            <!--<div class="container-fluid">
+
+                <div class="card shadow mb-4">
+                  <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Announce Information 
+
+                    </h6>
+                  </div>
+                
+                 <div class="card-body">
+                
+                    <div class="table-responsive">
+                
+                      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                          <tr>
+                            <th> ID </th>
+                            <th> Image </th>
+                            <th>nom </th>
+                            <th>capa </th>
+                            <th>prix</th>
+                            <th>type</th>
+                            <th>description</th> 
+                            <th>update</th>
+                            <th>delete</th>                            
+
+                            
+                          </tr>
+                        </thead>
+                
+                        <tbody *ngFor="let annonce of annonces ">
+
+                          <tr >
+                            
+                            <td>{{annonce.id}}</td>
+                            <td> {{annonce.image_url}}</td>
+                            <td> {{annonce.nomEcole}} </td>
+                            <td> {{annonce.capacite}} </td>
+                            <td> {{annonce.prix}}</td>
+                            <td> {{annonce.type}}</td>
+                            <td> {{annonce.description}}</td>
+
+                            <td>
+                              
+                                
+                                    
+                                        <a routerLink="/update/{{annonce.id}}">Update</a>
+                                    
+                                    
+                               
+                            </td>
+                            <td>
+                               <button (click)="deleteAnnonce(annonce.id)" class="btn btn-danger">Delete</button>
+
+                            </td>
+                            
+                          </tr>
+                       
+                        </tbody>
+                        
+                      </table>
+                
+                    </div>
+                  </div>
+                </div>
+                
+                </div>-->
+
+
+  

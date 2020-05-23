@@ -1,0 +1,28 @@
+label,li {
+    color: black;
+}
+
+#head{
+    text-align: center;
+    font-size: 20px;
+    
+}
+
+
+
+.properties{
+    position: absolute;
+    top: 1%;
+    left:0%;
+}
+
+#update:link, #update:visited {
+    background-color: rgb(9, 207, 69);
+    color: white;
+    /*padding: 5px 10px;*/
+    margin-left: -10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+  

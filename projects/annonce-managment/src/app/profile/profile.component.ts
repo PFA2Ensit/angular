@@ -37,7 +37,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     this.userProfile();
 
-    $(document).ready(function(){
+    /*$(document).ready(function(){
       $('.edit_btn').click(function(){
       console.log('hello');
       var tr = $(this).closest('tr');
@@ -50,7 +50,7 @@ export class ProfileComponent implements OnInit {
       $('#phone').val(data[1]);
       
       });
-      });
+      });*/
 
       this.annonceur = new Annonceur();
 
@@ -107,7 +107,7 @@ export class ProfileComponent implements OnInit {
   }
 
   gotoList() {
-    this.router.navigate(['/profile']);
+    this.router.navigate(['/list']);
   }
 
 

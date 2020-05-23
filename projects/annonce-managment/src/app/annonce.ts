@@ -2,16 +2,16 @@ import { Annonceur } from './annonceur';
 
 export class Annonce{
     id: number;
-    address:string;
-    property:string;
-    nomEcole : string; 
-    prix: number;
-    description: string;
-    nb_place: number;
-    type: string;
-    image_url:string;
-    date_ajout: Date;
-    availabe: boolean;
-    genre:string;
-    annonceur:Annonceur;
+    genre : string ='';
+    prix: number=0;
+    nomEcole: string = '';
+    image_url :string='';
+    type: string='';
+    capacite : number=0;
+    description : string ='';
+    prop:string='';
+    annonceur : Annonceur;
+
+    
 }
+

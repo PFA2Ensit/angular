@@ -36,6 +36,7 @@ export class Annonceur {
 }
 
 export class Annonce {
+    id :number
     genre : string ='';
     price: number=0;
     nomEcole: string = '';

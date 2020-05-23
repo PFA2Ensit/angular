@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { FormData,Annonceur,Annonce }       from './formData.model';
 import { AuthenticationService } from 'src/app/service/authentication.service';
 import { NgForm } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 //import { Annonce } from '../Annonce';
 //import { Annonceur }            from '../Annonceur';
 @Injectable({
@@ -13,7 +14,7 @@ export class FormDataService {
     proper = this.forms?.controls['extra'].value;
     
     //private annonceur: Annonceur = new Annonceur();
-  constructor(private loginservice: AuthenticationService) {
+  constructor(private loginservice: AuthenticationService,private route: ActivatedRoute) {
     let user = sessionStorage.getItem("username");
     this.loginservice.user(user).subscribe(
       error => console.log(error)
@@ -54,6 +55,7 @@ export class FormDataService {
         // Return the Properties data
         var annonce: Annonce = {
           //address: this.formData.address,
+          id:this.route.snapshot.params['id'],
           prop:this.formData.prop,
           price:this.formData.price ,
           nomEcole:this.formData.nomEcole ,

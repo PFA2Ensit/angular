@@ -1,6 +1,6 @@
 .container{
     position: absolute;
-    top:9%;
+    top:3%;
     /*background-color: blueviolet;*/
     left:5%;
     width:800px;
@@ -21,13 +21,13 @@ label,li {
 }
 .left-div {
     float: left;
-    width: 70%;
+    width: 65%;
     height: 450px;
     margin-right: 8px;
 }
 .right-div {
     position: absolute;
-    left: 60%;
+    left: 55%;
     height: 450px;
 
     width: 70%;
@@ -37,12 +37,12 @@ label,li {
 
 .buttom{
     position: absolute;
-    top:70%;
+    top:53%;
 }
 button{
     width: 130px;
     height: 50px;
     position: absolute;
-    top:80%;
-    left: 100%;
+    top:70%;
+    left: 90%;
 }

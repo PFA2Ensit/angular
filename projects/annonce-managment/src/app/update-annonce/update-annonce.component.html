@@ -1,20 +1,82 @@
-<h3>Update Employee</h3>
-  <form (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="name">First Name</label>
-      <input type="text" class="form-control" id="firstName" required [(ngModel)]="annonce.image_url" name="image_url">
-    </div>
+<div class="container">
 
-    <div class="form-group">
-      <label for="name">Last Name</label>
-      <input type="text" class="form-control" id="lastName" required [(ngModel)]="annonce.description" name="description">
-    </div>
+  <form name="demo" #addressForm="ngForm" novalidate>
 
-    <div class="form-group">
-      <label for="name">First Name</label>
-      <input type="text" class="form-control" id="emailId" required [(ngModel)]="annonce.prix" name="prix">
-    </div>
+      <p id="head">{{title}}</p>
+      <br />
 
-    <button type="submit" class="btn btn-success">Submit</button>
+     
+      
+      <div class="left-div">
+
+      <p class="control-label" for="state">Institution</p>
+      <select class="form-control input-md" #university="ngModel" required id="university"  name="university"
+          [(ngModel)]="annonce.nomEcole">
+          <option value="Ensit" selected>Ensit</option>
+          <option value="Isi">Isi</option>
+          <option value="Fst">Fst</option>
+          <option value="Enit">Enit</option>
+          <option value="Ensi">Ensi</option>
+          <option value="Essect">Essect</option>
+
+      </select>
+
+      <p class="control-label" for="state">Gender</p>
+      
+
+      <p>
+         
+        <input type="radio" value="boys" name="gender" [(ngModel)]="annonce.genre" > Boys
+        <input type="radio"   value="girls" name="gender" [(ngModel)]="annonce.genre" > Girls
+     </p>
+
+      <p class="control-label" for="Type">Type</p>
+      <select class="form-control input-md" #type="ngModel" required id="type" name="type" [(ngModel)]="annonce.type">
+          <option value="House" selected>House</option>
+          <option value="Foyer">Foyer</option>
+      </select>
+</div>
+
+<div class="right-div">
+
+      <p class="control-label" for="price">Price</p>
+      <input class="form-control input-md" #price="ngModel" required id="price" name="price" type="text"
+          placeholder="Enter price" [(ngModel)]="annonce.price">
+
+
+      <p class="control-label" for="state">Image URL</p>
+      <input class="form-control input-md" #image="ngModel" required id="image" name="image" type="file"
+          [(ngModel)]="annonce.image_url">
+
+      <p class="control-label" for="numberOfPersons">number Of Persons</p>
+      <input class="form-control input-md" #numberOfPersons="ngModel" id="numberOfPersons" name="numberOfPersons"
+          type="number" min="1" [(ngModel)]="annonce.capacite" placeholder="choose number">
+
+          <p class="control-label" >Extra</p>
+
+          <div id="extra"><input type="checkbox" name="extra" [(ngModel)]="annonce.prop" ><p>Wifi</p></div>
+          <div id="extra"><input type="checkbox" name="extra" [(ngModel)]="annonce.prop" ><p>Bus </p></div> 
+          <div id="extra"><input type="checkbox" name="extra" [(ngModel)]="annonce.prop" ><p>Phone</p></div>
+          <div id="extra"><input type="checkbox" name="extra" [(ngModel)]="annonce.prop" ><p>Train </p></div>
+
+
+
+</div>
+<div class="buttom">
+      <p class="control-label" for="description">Description</p>
+      <textarea rows="5" cols="60" class="form-control input-md" #description="ngModel" required id="description" name="description"
+          type="text" placeholder="Enter description" [(ngModel)]="annonce.description"></textarea>
+        </div>
+      
+      
+
+
+
   </form>
 
+  
+    <button type="button" class="btn btn-primary btn-outline-rounded"  (click)="onSubmit()"> Submit </button>
+
+</div>
+            
+            

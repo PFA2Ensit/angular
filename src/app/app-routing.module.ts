@@ -11,6 +11,7 @@ import { AnnonceComponent } from 'projects/annonce-managment/src/app/annonce/ann
 import { ResultComponent } from 'projects/annonce-managment/src/app/result/result.component';
 import { ListeComponent } from 'projects/annonce-managment/src/app/liste/liste.component';
 import { ProfileComponent } from 'projects/annonce-managment/src/app/profile/profile.component';
+import { UpdateAnnonceComponent } from 'projects/annonce-managment/src/app/update-annonce/update-annonce.component';
 
 const routes: Routes = [
 { path: 'home', component: CarouselComponent},
@@ -26,7 +27,9 @@ const routes: Routes = [
 {path: 'result',  component: ResultComponent},
 { path: 'search', component: AnnonceListComponent },
 { path: 'list', component: ListeComponent },
-{ path: 'profile', component: ProfileComponent }
+{ path: 'profile', component: ProfileComponent },
+{ path: 'update/:id', component: UpdateAnnonceComponent },
+
 
 
 
